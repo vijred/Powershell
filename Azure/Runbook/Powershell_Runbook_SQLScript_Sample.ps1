@@ -5,7 +5,7 @@
 # Simple way to run a Powershell runbook and execute a SQL Query
 
 #Get credentials using PSCredentials 
-$SQLCredentials = Get-AutomationPSCredential -Name 'AzureDBAdmin'
+$SQLCredentials = Get-AutomationPSCredential -Name 'MyAutomationCredName'
 $SqlUserName = $SQLCredentials.UserName
 $SqlPwd = $SQLCredentials.GetNetworkCredential().Password
 
