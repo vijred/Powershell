@@ -10,6 +10,7 @@ $ResourceGroupName = "MyResourceGroupName"
 
 $ENVIRONMENTNAME="Param1"
 $SERVERNAME="MYServerName"
+$HybridWorkerGroupName = "HybridWorkerGroupName"
 $Param3="Paarm3Value"
 $Param4="Paarm4"
 
@@ -20,3 +21,6 @@ Start-AzAutomationRunbook `
 	-Parameters $params `
 	-AutomationAccountName $automationAccountName `
 	-ResourceGroupName $ResourceGroupName
+	-RunOn $HybridWorkerGroupName 
+
+#Note -RunOn option to be removed if you are not using the Hybrid WorkerGroup
