@@ -11,3 +11,15 @@ $c | Where-Object {$_.CounterSetName -contains "sql" }
 $sqlc = $c | Where-Object {$_.CounterSetName -like "*SQL*" } | select counter
 ```
 
+* How to update environment vatiables (PATH)
+```
+# Update User environment variable
+$env:Path += ";C:\terraform" 
+
+# Update system environment variable
+[Environment]::SetEnvironmentVariable(
+    "Path",
+    [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine) + ";C:\terraform",
+    [EnvironmentVariableTarget]::Machine)
+```
+
