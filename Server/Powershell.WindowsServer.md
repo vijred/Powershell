@@ -21,5 +21,17 @@ $env:Path += ";C:\terraform"
     "Path",
     [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine) + ";C:\terraform",
     [EnvironmentVariableTarget]::Machine)
+
+# Update System environment variable in different way using registry
+    $oldpath = (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).path
+    $newpath = "$($DownloadPath);$oldpath"
+    Set-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $newPath        
+    (Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path        
+
 ```
 
+* Find Network ports opened 
+```
+$allconnections=Get-NetTCPConnection | Select-Object -Property *
+$allconnections | Select-Object -Property CreationTime, RemotePort, RemoteAddress | Sort-Object -Property CreationTime
+```
