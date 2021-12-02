@@ -36,6 +36,12 @@ $allconnections=Get-NetTCPConnection | Select-Object -Property *
 $allconnections | Select-Object -Property CreationTime, RemotePort, RemoteAddress | Sort-Object -Property CreationTime
 ```
 
+* Find if a port is open on a given server 
+```
+Test-NetConnection -ComputerName servername -Port portnumber
+Test-NetConnection -ComputerName myserver.contoso.com -Port 3434
+```
+
 * Download commands
 ```
 # Slow performance 
