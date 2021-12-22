@@ -20,4 +20,9 @@ Get-ADGroup
 Get-ADGroupMember
 Get-ADObject
 Get-ADUser
+Get-ADUser -Properties *
 
+* How to get user from a different domain 
+    - get-aduser UserAlias -Server domain.org.com 
+
+    
