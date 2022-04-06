@@ -114,3 +114,6 @@ if ( (Get-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem  
     java.exe -classpath $Env:CLASSPATH HelloWorldApp
     ```
 
+* Find and log off user sessions from a computer 
+    -   Find logins on a server: `query session /server:SERVERNAME` 
+    -   Logoff a session on the server: `reset session Session_ID /server:ServerName`
