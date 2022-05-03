@@ -84,3 +84,28 @@ Compare-Object -ReferenceObject $array -DifferenceObject $array2
 
 
 ```
+
+
+* Simple example to involke REST API 
+    -   `Invoke-RestMethod` can be used to invoke a Rest API , response will be PSCustomObject 
+    -   `Invoke-WebRequest` can also be used but the response object is going to be HTMLWebResponse 
+```
+Invoke-RestMethod -uri 'https://api.agify.io?name=Vijay'
+
+#Example-2
+Invoke-RestMethod -Uri https://blogs.msdn.microsoft.com/powershell/feed/ | Format-Table -Property Title, pubDate, link
+
+```
+
+* Additional example with header - 
+    - Reference: https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-restmethod?view=powershell-7.2 
+```
+$header =@{
+	app_id = "398a7009" 
+	app_key = "d746b3e212c4196b6599f77ed3f8e54b" 
+}
+
+$uri = "https://od-api.oxforddictionaries.com/api/v2/entries/en-us/azure" 
+
+Invoke-RestMethod -Uri $uri -Headers $header
+```
