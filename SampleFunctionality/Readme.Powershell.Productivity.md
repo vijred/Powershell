@@ -29,6 +29,10 @@ Module related
     - `Import-Module Az.Automation`
 * Install a module with given version
     - `Install-Module -Name AzureRM.Automation -MaximumVersion 6.1.1`
+* Install a module with repository
+    - Example, install AZ module - `Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force`
+* How to update execution policy
+    - `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 * How to find all repositories configured, that will be used during Intall-module
     - `Get-PSRepository`
 * How to register default Repository
