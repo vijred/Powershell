@@ -113,3 +113,17 @@ $uri = "https://od-api.oxforddictionaries.com/api/v2/entries/en-us/azure"
 
 Invoke-RestMethod -Uri $uri -Headers $header
 ```
+
+
+* Group by on Powershell Object
+```
+$result =ExecuteSqlOnElasticPool -ServerInstanceNameFull myservername.database.windows.net -DBorElasticPoolName MyServer-MyPool-01 -queryfilename "C:\Users\VJ\CTC_Total_CTC_RecordCount.sql" -dbcountlimit 620
+$result_group = $result | Group-Object -Property OperationID
+$Summary = @()
+$Summary += foreach($item in $result_group){
+    $item.Group | Select -Unique OperationID,
+    @{Name = 'OperationID_Sum';Expression = {(($item.Group) | measure -Property mycount -sum).Sum}}
+
+}
+$Summary
+```
