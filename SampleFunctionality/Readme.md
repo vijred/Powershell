@@ -20,7 +20,13 @@ $var= @"
 Start-Transcript "Transcript_$(Get-Date -f MM-dd-yyyy_HHmmss).txt"
 Stop-transcript 
 ```
+* Re-Load Powershell shell with updated path
+```
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
 
+#or
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
+```
 
 
 Module related
