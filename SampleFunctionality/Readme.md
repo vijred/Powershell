@@ -35,6 +35,7 @@ Module related
     - `Import-Module Az.Automation`
 * Install a module with given version
     - `Install-Module -Name AzureRM.Automation -MaximumVersion 6.1.1`
+    - `Install-Module -Name AzureRM.Automation -RequiredVersion 6.1.0`
 * Install a module with repository
     - Example, install AZ module - `Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force`
 * How to update execution policy
