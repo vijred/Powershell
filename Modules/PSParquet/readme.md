@@ -11,3 +11,17 @@ Example to read the data:
 $data3= Import-Parquet -FilePath C:\Users\myfolder\filename.parquet
 $data3.Count
 ```
+
+Alternative option is to install pip module and use it - Ref: https://github.com/chhantyal/parquet-cli (Yes, this is not the Powershell)
+```
+#install 
+pip install parquet-cli
+
+
+parq 'C:\Users\20230612\haha.parquet'
+
+parq 'C:\Users\20230612\haha.parquet' --schema
+
+parq 'C:\Users\20230612\haha.parquet' --head 10
+
+```
