@@ -117,6 +117,18 @@ if ( (Get-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem  
 * How to retrieve wifi password once connected to network 
     `netsh wlan show profile YOUR_NETWORK_NAME key=clear`
 
+* Validate and update proxy setting shile using Powershell -
+    ```
+        # Check proxy settings 
+        netsh winhttp show proxy
+
+        # Update proxy settings
+        [System.Net.Http.HttpClient]::DefaultProxy = New-Object System.Net.WebProxy ('http://your-proxy:3128')
+
+        # Update proxy credentials
+        [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials        
+    ```
+
 * Find and log off user sessions from a computer 
     -   Find logins on a server: `query session /server:SERVERNAME` 
     -   Logoff a session on the server: `reset session Session_ID /server:ServerName`
