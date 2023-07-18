@@ -2,8 +2,10 @@
 
 
 ## Basic cmdlet to get Events 
-Get-EventLog
+`Get-EventLog`
 
+## List all available EventLogs
+`Get-EventLog -List`
 
 ## Get Events from given Source 
 ```
@@ -38,7 +40,11 @@ Get-EventLog -Logname Security -InstanceId 4647
 Get-EventLog -Logname Security -InstanceId 4647  | Where-Object{$_.TimeGenerated -gt (Get-DateAddDays(-3)} |Select-Object -First 2  | Select-Object TimeGenerated, Message
 ```
 
-
+## Complex filter against eventlog content 
+```
+$r =  Get-WinEvent -LogName 'Connectors - Integration Runtime' | Select-Object -First 1000000000 | Where-Object {$_.Message -like '*fab792f9-5980-4997-879b-bd1621cdfd54*'}
+$r.count
+```
 
 
 Author: [Vijay Kundanagurthi](http://twitter.com/vijred)
