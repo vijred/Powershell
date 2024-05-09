@@ -1,5 +1,6 @@
 Active Directory Powershell
 ------------
+* one way to check password expiry - `net user AccountName /domain`
 
 * Typically AD displays Datetime values like (Created, Last Login, etc) in a string format. Following method can be used to convert to readable format. (ReF: https://www.epochconverter.com/ldap)
 ```
