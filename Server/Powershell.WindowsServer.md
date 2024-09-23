@@ -116,6 +116,8 @@ if ( (Get-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem  
 
 * How to retrieve wifi password once connected to network 
     `netsh wlan show profile YOUR_NETWORK_NAME key=clear`
+* How to see the mac address of wifi adaptor
+      `netsh wlan show interfaces`
 
 * Validate and update proxy setting shile using Powershell -
     ```
