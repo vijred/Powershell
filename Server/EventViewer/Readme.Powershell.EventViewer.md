@@ -46,5 +46,12 @@ $r =  Get-WinEvent -LogName 'Connectors - Integration Runtime' | Select-Object -
 $r.count
 ```
 
+## Command to find login and logout events - 
+```
+Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4801} | Sort-Object TimeCreated -Descending | Select-Object -First 5
+Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4800} | Sort-Object TimeCreated -Descending | Select-Object -First 5
+```
+
+
 
 Author: [Vijay Kundanagurthi](http://twitter.com/vijred)
