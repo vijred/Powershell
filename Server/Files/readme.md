@@ -14,4 +14,8 @@ Powersehell Files
     {
         Copy-Item  $LastDeployeddacpac -Destination "$updatePath\$ToBeFilename" -Force
     }
+
     ```
+
+    * How to search for a string in a given parent folder
+  `Get-ChildItem -Recurse -File | Select-String -Pattern "filecontentpattern"`
