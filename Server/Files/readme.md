@@ -17,5 +17,7 @@ Powersehell Files
 
     ```
 
-    * How to search for a string in a given parent folder
+* How to search for a string in a given parent folder
   `Get-ChildItem -Recurse -File | Select-String -Pattern "filecontentpattern"`
+
+* To find only file name but not the content, you can use `Get-ChildItem -Recurse -File | Where-Object { $_.Name -match "report" }`
